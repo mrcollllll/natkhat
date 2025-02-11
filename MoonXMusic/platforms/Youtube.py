@@ -20,8 +20,8 @@ import random
 import logging
 
 def cookie_txt_file():
-    folder_path = f"{os.getcwd()}/Cookies"
-    filename = f"{os.getcwd()}/Cookies/logs.csv"
+    folder_path = f"{os.getcwd()}/cookies"
+    filename = f"{os.getcwd()}/cookies/logs.csv"
     txt_files = glob.glob(os.path.join(folder_path, '*.txt'))
     if not txt_files:
         raise FileNotFoundError("No .txt files found in the specified folder.")
@@ -34,9 +34,9 @@ def cookie_txt_file():
 
 async def check_file_size(link):
     async def get_format_info(link):
-        proc = await asyncio.Create_subprocess_exec(
+        proc = await asyncio.create_subprocess_exec(
             "yt-dlp",
-            "--cookies", Cookie_txt_file(),
+            "--cookies", cookie_txt_file(),
             "-J",
             link,
             stdout=asyncio.subprocess.PIPE,
