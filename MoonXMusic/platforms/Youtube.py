@@ -44,7 +44,7 @@ async def check_file_size(link):
         )
         stdout, stderr = await proc.communicate()
         if proc.returncode != 0:
-            print(f'error:\n{stderr.decode()}')
+            print(f'Error:\n{stderr.decode()}')
             return None
         return json.loads(stdout.decode())
 
